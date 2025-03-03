@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 11:10:12 by rzamolo-          #+#    #+#             */
-/*   Updated: 2022/09/28 13:42:42 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/03/03 19:14:41 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,9 @@ char	*ft_strrchr(const char *s, int c)
 		if (*aux == (unsigned char)c)
 		{
 			return (aux);
-		}	
+		}
 		aux--;
 		length--;
 	}
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	char str[10] = "tripouille";
-
-// 	printf("strrchr   : %s\n", strrchr(str, 't' + 256));
-// 	printf("ft_strrchr: %s\n", ft_strrchr(str, 't' + 256));
-
-// }

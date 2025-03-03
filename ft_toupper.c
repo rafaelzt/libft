@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:07:28 by rzamolo-          #+#    #+#             */
-/*   Updated: 2022/09/28 13:42:54 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/03/03 19:13:36 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ DESCRIPTION
 	or the value of EOF.
 
     Although the toupper() function uses the current locale, the toupper_l() 
-	function may be passed a locale directly. See xlocale(3) for more information.
+	function may be passed a locale directly. See xlocale(3) for more 
+ information.
 
 RETURN VALUES
     If the argument is a lower-case letter, the toupper() function returns the 
