@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+         #
+#    By: rzamolo- <rzamolo-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 21:46:19 by rzamolo-          #+#    #+#              #
-#    Updated: 2022/10/01 11:30:16 by rzamolo-         ###   ########.fr        #
+#    Updated: 2025/03/07 15:05:53 by rzamolo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,62 +15,72 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 NAME = libft.a
 RM = rm -rf
+
+################################################################################
+##							DIRECTORIES									  	  ##
+################################################################################
+BIN_DIR = bin
+INC_DIR = inc
+SRC_DIR = src
+OBJ_DIR = obj
+TST_DIR = test
+
 ################################################################################
 ##								MANDATORY									  ##
 ################################################################################
 CFILES = \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_strlen.c \
-		ft_memset.c \
-		ft_bzero.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
-		ft_toupper.c \
-		ft_tolower.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strncmp.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strnstr.c \
-		ft_atoi.c \
-		ft_calloc.c \
-		ft_strdup.c \
-		ft_substr.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_split.c \
-		ft_itoa.c \
-		ft_strmapi.c \
-		ft_striteri.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		$(SRC_DIR)/ft_isalpha.c \
+		$(SRC_DIR)/ft_isdigit.c \
+		$(SRC_DIR)/ft_isalnum.c \
+		$(SRC_DIR)/ft_isascii.c \
+		$(SRC_DIR)/ft_isprint.c \
+		$(SRC_DIR)/ft_strlen.c \
+		$(SRC_DIR)/ft_memset.c \
+		$(SRC_DIR)/ft_bzero.c \
+		$(SRC_DIR)/ft_memcpy.c \
+		$(SRC_DIR)/ft_memmove.c \
+		$(SRC_DIR)/ft_strlcpy.c \
+		$(SRC_DIR)/ft_strlcat.c \
+		$(SRC_DIR)/ft_toupper.c \
+		$(SRC_DIR)/ft_tolower.c \
+		$(SRC_DIR)/ft_strchr.c \
+		$(SRC_DIR)/ft_strrchr.c \
+		$(SRC_DIR)/ft_strncmp.c \
+		$(SRC_DIR)/ft_memchr.c \
+		$(SRC_DIR)/ft_memcmp.c \
+		$(SRC_DIR)/ft_strnstr.c \
+		$(SRC_DIR)/ft_atoi.c \
+		$(SRC_DIR)/ft_calloc.c \
+		$(SRC_DIR)/ft_strdup.c \
+		$(SRC_DIR)/ft_substr.c \
+		$(SRC_DIR)/ft_strjoin.c \
+		$(SRC_DIR)/ft_strtrim.c \
+		$(SRC_DIR)/ft_split.c \
+		$(SRC_DIR)/ft_itoa.c \
+		$(SRC_DIR)/ft_strmapi.c \
+		$(SRC_DIR)/ft_striteri.c \
+		$(SRC_DIR)/ft_putchar_fd.c \
+		$(SRC_DIR)/ft_putstr_fd.c \
+		$(SRC_DIR)/ft_putendl_fd.c \
+		$(SRC_DIR)/ft_putnbr_fd.c
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
 
 ################################################################################
 ##									BONUS									  ##
 ################################################################################
 CBONUS = \
-		ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
+		$(SRC_DIR)/ft_lstnew.c \
+		$(SRC_DIR)/ft_lstadd_front.c \
+		$(SRC_DIR)/ft_lstsize.c \
+		$(SRC_DIR)/ft_lstlast.c \
+		$(SRC_DIR)/ft_lstadd_back.c \
+		$(SRC_DIR)/ft_lstdelone.c \
+		$(SRC_DIR)/ft_lstclear.c \
+		$(SRC_DIR)/ft_lstiter.c \
+		$(SRC_DIR)/ft_lstmap.c
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
-OBJS = $(CFILES:.c=.o)
-BOBJS = $(CBONUS:.c=.o)
+OBJS = $(CFILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+BOBJS = $(CBONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 ################################################################################
 
 ################################################################################
@@ -79,25 +89,26 @@ BOBJS = $(CBONUS:.c=.o)
 all:        bonus $(NAME)
 
 $(NAME): $(OBJS)
-			@$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
-%.o:%.c
-			$(CC) $(CFLAGS) -c $^ -o $@
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 bonus: $(OBJS) $(BOBJS)
-			@$(AR) $(NAME) $(OBJS) $(BOBJS)
+	@$(AR) $(NAME) $(OBJS) $(BOBJS)
 			
 
 re:     	fclean all
 
 fclean: clean
-			@$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 clean:	bclean
-			@$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 
 bclean:
-			@$(RM) $(BOBJS)
+	@$(RM) $(BOBJS)
 
 # $<: rule target file (input)
 # $@: rule source file (output)
