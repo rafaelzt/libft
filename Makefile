@@ -6,7 +6,7 @@
 #    By: rzamolo- <rzamolo-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 21:46:19 by rzamolo-          #+#    #+#              #
-#    Updated: 2025/03/07 15:05:53 by rzamolo-         ###   ########.fr        #
+#    Updated: 2025/03/08 13:05:57 by rzamolo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,9 @@ CFILES = \
 		$(SRC_DIR)/ft_putchar_fd.c \
 		$(SRC_DIR)/ft_putstr_fd.c \
 		$(SRC_DIR)/ft_putendl_fd.c \
-		$(SRC_DIR)/ft_putnbr_fd.c
+		$(SRC_DIR)/ft_putnbr_fd.c \
+		$(SRC_DIR)/ft_isspace.c \
+		$(SRC_DIR)/ft_atol.c
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
 
 ################################################################################
