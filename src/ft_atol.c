@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:59:44 by rzamolo-          #+#    #+#             */
-/*   Updated: 2025/03/08 13:06:13 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:09:51 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ long	ft_atol(const char *pnbr)
 		++pnbr;
 	while (*pnbr == '-' || *pnbr == '+')
 	{
-		if (*(pnbr++) == '-')
+		if (*pnbr == '-')
 			sign *= -1;
 		++pnbr;
 	}
 	while (ft_isdigit(*pnbr))
 	{
-		nbr *= 10;
-		nbr += *pnbr - '0';
+		nbr = nbr * 10 + (*pnbr - '0');
 		++pnbr;
 	}
 	return (sign * nbr);

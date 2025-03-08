@@ -3,7 +3,10 @@
 
 int	main(void)
 {
-	printf("%d\n", ft_atoi("   -1234"));
+	long	nbr;
+
+	nbr = ft_atol("   -+1234");
+	printf("%ld\n", nbr);
 	return (0);
 }
 
